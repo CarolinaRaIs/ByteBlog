@@ -19,7 +19,7 @@ Post.init(
 
     content: {
       //This is used for longer string variables. 
-      //DataTypes.TEXT can store a string with a maximum length of 65,535 characters which the flexibility needed for a blog.
+      //DataTypes.TEXT can store a string with a maximum length of 65,535 characters which is the flexibility needed for a blog.
       type: DataTypes.TEXT,
       allowNull: false,
     },
@@ -30,8 +30,10 @@ Post.init(
       defaultValue: DataTypes.NOW,
     },
 
+    // foreign key to Users table (data)
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
       model: "user",
       key: "id",
