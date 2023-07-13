@@ -1,10 +1,12 @@
 {
   "name": "byteblog",
   "version": "1.0.0",
-  "description": "(MVC)A blog site where developers can share their thoughts and insights.",
+  "description": "(MVC) A blog site where developers can share their thoughts and insights.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
