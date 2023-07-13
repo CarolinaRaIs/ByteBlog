@@ -11,10 +11,11 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    content_text: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    //May remove this
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
