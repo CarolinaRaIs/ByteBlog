@@ -22,5 +22,21 @@ document.querySelector("#newComment").addEventListener("submit", event => {
     headers: { "Content-Type": "application/json" }
   })
 
+  // Post new comment
+  fetch("/api/comments", {
+    method: "POST",
+    body: JSON.stringify(newComment),
+    headers: { "Content-Type": "application/json" }
+  })
+
+  .then(response => {
+    if (response.ok) {
+        console.log("Comment posted:", newComment);
+        location.reload();
+    } else {
+        alert("There was an error, please try again.");
+    }
+  })
+  .catch(error => console.error('Error:', error));
 
 });
