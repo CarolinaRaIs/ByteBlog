@@ -1,3 +1,7 @@
+// This directory contains all the dependencies for project, but can be hundreds of megabytes in size
+// It's unnecessary to include in the repository because anyone can generate it by running npm install on their own machine.
 node_modules
+// This file contains sensitive information like database credentials. 
 .env
+// This is a system file created by macOS for its own use. It's not related to project and doesn't need to be included in the repository.
 .DS_Store
