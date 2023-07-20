@@ -5,7 +5,9 @@ const { User, Post, Comment } = require('../models');
 router.get('/', async (req, res) => {
   try {
     // Retrieve all posts with associated users
+        //the returned objects are Sequelize model instances. 
     const posts = await Post.findAll({ include: [User] });
+    // hbsPosts = an array of plain JavaScript objects representing the blog posts, rather than instances of the Sequelize model. 
     const hbsPosts = posts.map(post => post.get({ plain: true }));
 
     // Check if the user is logged in
@@ -30,12 +32,14 @@ router.get('/login', (req, res) => {
 // Logout route
 router.get('/logout', (req, res) => {
     req.session.destroy(err => {
+
       if (err) {
         console.log(err);
         return res.status(500).json({ message: 'Failed to log out' });
       }
       res.clearCookie('session-id');
       res.redirect('/');
+
     });
 });
 
@@ -48,7 +52,7 @@ router.get('/signup', (req, res) => {
 // Dashboard route
 router.get('/dashboard', async (req, res) => {
     try {
-      // Check if the user is logged in
+      // Check that the user is logged in
       if (!req.session.user) {
         res.redirect('/login');
         return;
@@ -70,6 +74,7 @@ router.get('/dashboard', async (req, res) => {
 
       // Render the 'dashboard' template with the user's data
       res.render('dashboard', hbsData);
+
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -105,8 +110,8 @@ router.get('/posts/:id', async (req, res) => {
         return res.render('comment', { hbsPost, loggedIn, username: req.session.user?.username });
       }
 
-      // Render the 'updateDelete' template if it's the user's post
-      res.render('updateDelete', { hbsPost, loggedIn, username: req.session.user?.username });
+      // Render the 'updateAndDelete' template if it's the user's post
+      res.render('updateAndDelete', { hbsPost, loggedIn, username: req.session.user?.username });
 
     } catch (err) {
       console.log(err);
@@ -119,4 +124,5 @@ router.get('*', (req, res) => {
   res.redirect('/');
 });
   
+// Export the router
 module.exports = router;
