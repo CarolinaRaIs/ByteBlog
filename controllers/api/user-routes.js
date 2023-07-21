@@ -37,3 +37,17 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Create a new user
+router.post('/', async (req, res) => {
+    try {
+        const newUser = await User.create(req.body, { individualHooks: true });
+        req.session.user = {
+            id: newUser.id,
+            username: newUser.username
+        };
+        res.json(newUser);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ msg: 'An error occurred', err });
+    }
+});
