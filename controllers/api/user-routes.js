@@ -102,3 +102,38 @@ router.post('/login', async (req, res) => {
 });
 
 // Update a user by ID
+router.put('/:id', async (req, res) => {
+    try {
+        // Update the user with the provided ID in the database with the data from the request body
+        const updatedUser = await User.update(req.body, {
+            where: {
+                id: req.params.id
+            },
+        individualHooks: true
+
+        });
+        // Send the updated user as a JSON response
+        res.json(updatedUser);
+    } catch (err) {
+      // If an error occurs during the database query or response, handle the error
+      console.log(err);
+      res.status(500).json({ msg: 'An error occurred', err });
+    }
+  });
+  
+  // Delete a user by ID
+  router.delete('/:id', async (req, res) => {
+    try {
+      const delUser = await User.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+      res.json(delUser);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ msg: 'An error occurred', err });
+    }
+  });
+  
+  module.exports = router;
