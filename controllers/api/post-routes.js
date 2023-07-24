@@ -11,22 +11,44 @@ const withAuth = require('../../utils/auth');
 // Create a new blog post
 router.post('/', async (req, res) => {
     try {
-        // Extract the 'title' and 'content' from the request body
-        const { title, content } = req.body;
-
         // Create a new post in the database with the provided 'title', 'content', and 'user_id' from the session
         const newPost = await Post.create({
             title,
             content,
             user_id: req.session.user.id,
+        }, 
+        {
+            include: [User]
         });
 
         // Send the newly created post as a JSON response
         res.json(newPost);
 
-        } catch (err) {
-            // If an error occurs during the database query or response, handle the error
-            console.error(err);
-            res.status(500).json({ msg: 'An error occurred', err });
-        }
-    });
+    } catch (err) {
+        // If an error occurs during the database query or response, handle the error
+        console.error(err);
+        res.status(500).json({ msg: 'An error occurred', err });
+    }
+});
+
+// Update a post
+router.put('/:id', async (req, res) => {
+    try {
+        // Extract the 'title' and 'content' from the request body
+        const { title, content } = req.body;
+  
+        // Update the post with the provided ID in the database with the data from the request body
+        const updatedPost = await Post.update(
+            { title, content },
+            { where: { id: req.params.id }, include: [User] }
+        );
+    
+    // Send the updated post as a JSON response
+    res.json(updatedPost);
+    
+    } catch (err) {
+        // If an error occurs during the database query or response, handle the error
+        console.error(err);
+        res.status(500).json({ msg: 'An error occurred', err });
+    }
+});
