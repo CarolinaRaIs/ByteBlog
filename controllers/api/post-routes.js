@@ -52,3 +52,39 @@ router.put('/:id', async (req, res) => {
         res.status(500).json({ msg: 'An error occurred', err });
     }
 });
+
+// Delete a post
+router.delete('/:id', async (req, res) => {
+    try {
+        // Delete the post with the provided ID from the database
+        const deletedPost = await Post.destroy({
+            where: { id: req.params.id },
+            include: [User],
+        });
+  
+        // Send the deleted post as a JSON response
+        res.json(deletedPost);
+    } catch (err) {
+        // If an error occurs during the database query or response, handle the error
+        console.error(err);
+        res.status(500).json({ msg: 'An error occurred', err });
+    }
+  });
+
+// Get all posts and blogs associated with users/comments
+router.get('/', async (req, res) => {
+    try {
+        // Retrieve all posts from the database, including their associated users and comments
+        const dbPosts = await Post.findAll({ include: [User, Comment] });
+  
+        // Send the retrieved posts as a JSON response
+        res.json(dbPosts);
+    } catch (err) {
+        // If an error occurs during the database query or response, handle the error
+        console.error(err);
+        res.status(500).json({ msg: 'An error occurred', err });
+    }
+});
+
+
+
