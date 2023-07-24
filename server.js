@@ -22,7 +22,7 @@ const SequelizeSessionStore = require('connect-session-sequelize')(session.Store
 // Initialize Express app 
 const server = express();
 // Define port
-const SERVER_PORT = process.env.PORT || 3001;
+const SERVER_PORT = process.env.PORT || 3306;
 
 // Set up middleware for parsing request body and serving static files
 server.use(express.json());
@@ -58,10 +58,23 @@ server.use(routes);
 // Sync Sequelize models to the database...
     //When force is set to false (the default), this will not drop the table even if it already exists. Instead, it will just attempt to create the table. If the table already exists, Sequelize will do nothing.
     //When force is set to true, it will drop (delete) the table first if it already exists, and then create a new one.  Be careful with this in a production environment because you can lose data.
-sequelize.sync({ force: false }).then(() => {
+//sequelize.sync({ force: false }).then(() => {
     // then....turn on server
+    //server.listen(SERVER_PORT, () =>
+    //console.log(`Server is now listening on port ${SERVER_PORT}`)
+    //);
+//});
+
+sequelize.sync({ force: false }) // Use { force: true } only during development to drop existing tables
+  .then(() => {
+    console.log('Database synchronized successfully.');
+    // Start the server after synchronization
     server.listen(SERVER_PORT, () =>
-    console.log(`Server is now listening on port ${SERVER_PORT}`)
+      console.log(`Server is now listening on port ${SERVER_PORT}`)
     );
-});
+  })
+
+  .catch((error) => {
+    console.error('Error synchronizing the database:', error);
+  });
 
