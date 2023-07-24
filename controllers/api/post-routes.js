@@ -71,7 +71,7 @@ router.delete('/:id', async (req, res) => {
     }
   });
 
-// Get all posts and blogs associated with users/comments
+// Get all posts and blogs associated with users and comments
 router.get('/', async (req, res) => {
     try {
         // Retrieve all posts from the database, including their associated users and comments
@@ -86,5 +86,22 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get a single post and associated user and comment
+router.get('/:id', async (req, res) => {
+    try {
+        // Find the post with the given ID, including its associated user and comments
+        const dbPost = await Post.findByPk(req.params.id, { include: [User, Comment] });
+  
+        // Send the retrieved post as a JSON response
+        res.json(dbPost);
+
+    } catch (err) {
+        // If an error occurs during the database query or response, handle the error
+        console.error(err);
+        res.status(500).json({ msg: 'An error occurred', err });
+    }
+});
+
+module.exports = router;
 
 
