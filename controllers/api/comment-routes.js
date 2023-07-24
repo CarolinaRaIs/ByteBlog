@@ -18,3 +18,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get a specific comment by ID with associated user and post
+router.get('/:id', async (req, res) => {
+    try {
+        // Find the comment with the given ID, including its associated user and post
+        const dbComment = await Comment.findByPk(req.params.id, { include: [User, Post] });
+        
+        // Send the retrieved comment as a JSON response
+        res.json(dbComment);
+
+    } catch (err) {
+      // If an error occurs during the database query or response, handle the error
+      console.log(err);
+      res.status(500).json({ msg: 'An error occurred', err });
+    }
+});
