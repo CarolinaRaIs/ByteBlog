@@ -86,7 +86,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a single post and associated user and comment
+// Get a single post and associated user and comments
 router.get('/:id', async (req, res) => {
     try {
         // Find the post with the given ID, including its associated user and comments
