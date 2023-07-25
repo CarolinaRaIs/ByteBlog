@@ -3,6 +3,8 @@ const User = require('../../models/User')
 const Post = require('../../models/Post')
 const Comment  = require('../../models/Comment')
 console.log(Comment); // Add this line to check if User is imported correctlyconst withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth'); // Import the withAuth middleware
+
 
 // Get all comments with associated users and posts
 router.get('/', async (req, res) => {

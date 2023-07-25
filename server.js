@@ -10,11 +10,11 @@ const helper = require('./utils/helper');
 require('dotenv').config() 
 
 // Log the environment variables to verify they are being read correctly
-console.log(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD
-);
+//console.log(
+    //process.env.DB_NAME,
+   // process.env.DB_USER,
+    //process.env.DB_PASSWORD
+//);
 
 // Initialize Sequelize with session store
 const SequelizeSessionStore = require('connect-session-sequelize')(session.Store);
