@@ -22,7 +22,8 @@ const SequelizeSessionStore = require('connect-session-sequelize')(session.Store
 // Initialize Express app 
 const server = express();
 // Define port
-const SERVER_PORT = process.env.PORT || 3306;
+//With these changes, the Node.js server will run on port 3001, and the Sequelize database connection will be set up to use port 3306 for your local MySQL server
+const SERVER_PORT = process.env.PORT || 3001;
 
 // Set up middleware for parsing request body and serving static files
 server.use(express.json());
@@ -54,6 +55,12 @@ server.set('view engine', 'handlebars');
 
 // Define routes for the server
 server.use(routes);
+
+// Define a custom error handler middleware
+server.use((err, req, res, next) => {
+    console.error('Error:', err);
+    res.status(500).json({ msg: 'An error occurred', err: {} });
+});
 
 // Sync Sequelize models to the database...
     //When force is set to false (the default), this will not drop the table even if it already exists. Instead, it will just attempt to create the table. If the table already exists, Sequelize will do nothing.

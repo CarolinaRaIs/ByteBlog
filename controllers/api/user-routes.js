@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { User, Post, Comment } = require('../../models');
+const User = require('../../models/User')
+const Post = require('../../models/Post')
+const Comment  = require('../../models/Comment')
+console.log(User); // Add this line to check if User is imported correctly
 const bcrypt = require('bcrypt');
 
 // Get all users with associated posts and comments
@@ -61,8 +64,9 @@ router.post('/', async (req, res) => {
         res.json(newUser);
     } catch (err) {
         // If an error occurs during the database query or response, handle the error
-        console.log(err);
-        res.status(500).json({ msg: 'An error occurred', err });
+        console.log('Error creating user:', err);
+        // Send the error message in the response
+        res.status(500).json({ msg: 'An error occurred', err: err.message });
     }
 });
 
