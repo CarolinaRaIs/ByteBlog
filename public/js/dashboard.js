@@ -8,7 +8,7 @@ const newPost = document.querySelector("#newPost");
 
 // Hide the "Create New Post" section initially
 const hideCreateNewPost = () => {
-    newPostContainer.style.display = "none";
+    createNew.hidden = true;
 };
 
 hideCreateNewPost();
