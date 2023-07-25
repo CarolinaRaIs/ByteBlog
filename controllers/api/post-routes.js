@@ -3,8 +3,10 @@ const express = require('express');
 // Create a new router instance using the 'express.Router()' method
 const router = express.Router();
 // These models represent the database tables and allow me to interact with the database
-const { User, Post, Comment } = require('../../models');
-// This middleware is used to check if a user is authenticated before allowing access to certain routes
+const User = require('../../models/User')
+const Post = require('../../models/Post')
+const Comment  = require('../../models/Comment')
+console.log(Post); // Add this line to check if User is imported correctly// This middleware is used to check if a user is authenticated before allowing access to certain routes
 // It is used as a middleware in routes that require authentication
 const withAuth = require('../../utils/auth');
 
