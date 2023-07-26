@@ -153,6 +153,9 @@ https://github.com/CarolinaRaIs/ByteBlog
 To access the deployed site visit:
  https://carolinarais.github.io/ByteBlog/
 
+To access the site on Heroku:
+https://bytee-blogg-ce1b384c0ee2.herokuapp.com/ 
+
 <br>
 
 ## Contributing 
