@@ -1,0 +1,19 @@
+<!-- Main Header -->
+<h1 class="header">Byte Blog</h1>
+
+<!-- Loop through each post and display it as a card -->
+{{#each posts}}
+    <section class="card">
+        <!-- Link to individual post using its unique ID-->
+        <a href="/posts/{{id}}" class="card-body">
+            <h3 class="card-title">{{title}}</h3>
+        </a>
+        <!-- Display post information: author and creation date -->
+        <h5 class="card-info">Posted by {{user.username}} on {{createdAt}}</h5>
+        <!-- Post Content -->
+        <p class="card-text">{{content}}</p>
+    </section>
+{{/each}}
+
+<!-- Include JavaScript file for Home functionality -->
+<script src="/js/home.js"></script>

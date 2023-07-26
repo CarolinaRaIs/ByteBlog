@@ -1,0 +1,28 @@
+<!-- This section creates a card that contains the login form -->
+<section class="card">
+    <!-- The card body contains the login form elements -->
+    <div class="card-body">
+        <!-- The card title indicates that this is the login section -->
+        <h3 class="card-title">Login</h3>
+        <!-- The login form that allows users to enter their credentials -->
+        <form id="loginForm" class="login-form">
+            <!-- Input field for the username -->
+            <div class="card-text">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" class="login-input" placeholder="Username">
+            </div>
+            <!-- Input field for the password -->
+            <div class="card-text">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" class="login-input" placeholder="Password">
+            </div>
+            <!-- The login button allows users to submit the form and log in -->
+            <button id="loginButton" class="login-button" type="submit">Login</button>
+            <!-- The signup link redirects users to the signup page -->
+            <a href="/signup" class="signup-link">Signup</a>
+        </form>
+    </div>
+</section>
+
+<!-- This script includes the JavaScript file responsible for handling login functionality -->
+<script src="/js/login.js"></script>
