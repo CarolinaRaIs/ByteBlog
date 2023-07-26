@@ -147,6 +147,12 @@ After following the instructions in installation:
 
 11. After completion, stop Nodemon and terminate the session by pressing CONTROL-C in the terminal. 
 
+To access the Github Repository visit:
+https://github.com/CarolinaRaIs/ByteBlog
+
+To access the deployed site visit:
+ https://carolinarais.github.io/ByteBlog/
+
 <br>
 
 ## Contributing 
