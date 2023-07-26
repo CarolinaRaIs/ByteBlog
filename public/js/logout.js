@@ -3,7 +3,7 @@ function signOut() {
     // Define an asynchronous function to perform the logout
     const logout = async () => {
       try {
-        // Send a POST request to the server to log out the user
+        // Send a POST request to the server to log out the user= a POST request to the /api/users/logout endpoint on the server. 
         const response = await fetch('/api/users/logout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
