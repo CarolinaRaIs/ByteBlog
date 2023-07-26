@@ -1,0 +1,148 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Body Styles */
+body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333333;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+/* Header and Title */
+header, h1 {
+    background-color: #ff8c00;
+    padding: 15px;
+    color: #ffffff;
+    text-shadow: 2px 2px #333333;
+}
+
+/* Links in Header */
+header a {
+    margin: 10px;
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: #ff8c00;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Post Card Title */
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ff8c00;
+    background-color: #f0f0f0;
+    border: 2px solid #ff8c00;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Post Card */
+.card {
+    margin: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ff8c00;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Card Body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Post Card Text */
+.card h5, .card p {
+    color: #555555;
+}
+
+/* Post Card Links */
+.card a {
+    color: #ffffff;
+    background-color: #ff8c00;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.card a:hover {
+    background-color: #e67300;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    margin: 10px;
+    font-size: 1rem;
+    background-color: #ff8c00;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #e67300;
+}
+
+/* Form Buttons */
+#create, #update, #delete {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    color: #ff8c00;
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#create:hover, #update:hover, #delete:hover {
+    background-color: #ff8c00;
+    color: #ffffff;
+}
+
+/* Comments Section */
+#comment {
+    width: 90%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+}
+
+/* Input Fields */
+#title, #editedTitle {
+    width: 70%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+/* Textarea Fields */
+#content, #editedContent {
+    width: 70%;
+    height: 150px;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
