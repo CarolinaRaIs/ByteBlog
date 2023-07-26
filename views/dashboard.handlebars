@@ -1,9 +1,53 @@
-<main>
-  <header>
-    <h1>Your Dashboard</h1>
-    <h2>Greetings, {{user.username}}!</h2>
-  </header>
+<!-- Dashboard Title -->
+<h1 class="header">Dashboard</h1>
 
-   <div id="postSection">
-    
-   </div>
+<!-- Welcome Message with Username -->
+<h2 class="welcome">Greetings {{user.username}}</h2>
+
+<!-- Section for Displaying Existing Posts -->
+<section id="existingposts">
+   {{#each posts}}
+        <!-- Card for Each Post -->
+        <section class="card">
+            <!-- Link to Individual Post -->
+            <a href="/posts/{{id}}" class="card a">
+                <!-- Post Title -->
+                <h3 class="card-title">{{title}}</h3>
+            </a>
+            <!-- Post Creation Date -->
+            <h5 class="card h5">Posted on {{createdAt}}</h5>
+            <!-- Post Content -->
+            <p class="card p">{{content}}</p>
+        </section>
+    {{/each}}
+</section>
+
+<!-- Section for Creating New Posts -->
+<section id="createNew" class="create-card">
+    <div class="card-body create-card-body">
+        <!-- Title for Create New Post Section -->
+        <h3 class="card-title create-card-title">Create New Post</h3>
+        <!-- Form for Creating New Post -->
+        <form id="newPost" class="form-group create-form">
+            <!-- Input Field for Post Title -->
+            <div class="form-group">
+                <label for="title">Title</label><br>
+                <input type="text" id="title" class="create-input" placeholder="Title">
+            </div>
+            <!-- Textarea for Post Content -->
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea name="content" id="content" class="create-textarea" placeholder="Content"></textarea>
+            </div>
+            <!-- Button to Create Post -->
+            <button id="create" class="create-button button" type="submit">Create Post</button>
+        </form>
+    </div>
+</section>
+
+<form id="addNewPost">
+    <button id="addNewPost" class="create-button form-button">Add New Post</button>
+</form>
+
+<!-- JavaScript file for Dashboard -->
+<script src="/js/dashboard.js"></script>

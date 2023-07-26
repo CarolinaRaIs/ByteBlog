@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Blog</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Link to custom styles -->
+    <link rel="stylesheet" href="../../public/css/style.css">
+</head>
+<body>
+    <!-- Header section with a dark background -->
+    <header id="top-header" class="bg-dark text-white py-3">
+        <!-- Navigation container -->
+        <nav class="container d-flex justify-content-center">
+            <!-- Conditional block based on the loggedIn status -->
+            {{#if isLoggedIn}}
+                <!-- Display these links if the user is logged in -->
+                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Sign Out</a>
+            {{else}}
+                <!-- Display these links if the user is not logged in -->
+                <a href="/">Home</a>
+                <a href="/login">Sign In</a>
+                <a href="/signup">Register</a>
+            {{/if}}
+        </nav>
+    </header>
+    <!-- Main content section with top margin -->
+    <main class="container mt-5">
+        <!-- This is a Handlebars expression to render the body content of each page -->
+        {{{body}}}
+    </main>
+
+    <!-- Footer section with dark background and white text -->
+    <footer class="bg-dark text-white py-3 mt-5">
+        <!-- Copyright notice centered in the footer -->
+        <p class="text-center mb-0">&copy; 2023 Byte Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
