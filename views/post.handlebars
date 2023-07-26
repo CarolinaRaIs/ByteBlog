@@ -1,0 +1,18 @@
+<!-- This is a section representing a card that displays a blog post -->
+<section class="card">
+  <!-- The link leads to the post's individual page, using its unique ID in the URL -->
+  <a href="/posts/{{id}}" class="card-body">
+    <!-- The title of the blog post -->
+    <h3 class="card-title">{{title}}</h3> 
+
+    <!-- The author of the blog post and the date it was posted -->
+    <h4>Posted by {{user.username}} on {{createdAt}}</h4>
+
+    <!-- The content of the blog post -->
+    <p class="card-text">{{content}}</p>
+  </a>
+</section>
+
+<!-- JavaScript file for Dashboard -->
+<!-- This script file is responsible for adding interactivity to the dashboard -->
+<script src="/public/js/dashboard.js"></script>
