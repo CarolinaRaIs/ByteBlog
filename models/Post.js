@@ -30,7 +30,7 @@ Post.init(
       defaultValue: DataTypes.NOW,
     },
 
-    // foreign key to Users table (data)
+    //Foreign key to Users table (data)
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

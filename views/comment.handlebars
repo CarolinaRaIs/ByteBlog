@@ -1,0 +1,52 @@
+<!-- Page Title -->
+<h1 class="header">Byte Blog</h1>
+
+<!-- Current Blog Post Section -->
+<section id="currentComment">
+  <!-- Card for the Current Blog Post -->
+  <section class="card">
+    <div class="card-body">
+      <!-- Blog Post Title -->
+      <h3 class="card-title">{{hbsPost.title}}</h3> 
+      <!-- Blog Post Author and Date of Posting -->
+      <h5>Posted by {{hbsPost.user.username}} on {{hbsPost.createdAt}}</h5>
+      <!-- Blog Post Content -->
+      <p class="card-text">{{hbsPost.content}}</p>
+    </div>
+  </section>
+
+  <!-- Loop through each comment in the blog post -->
+  {{#each hbsPost.comments}}
+  <!-- Card for each Comment -->
+  <section class="card">
+    <div class="card-body">
+      <!-- Comment Label -->
+      <p>Comment</p>
+      <!-- Comment Content -->
+      <p class="card-text">{{comment_text}}</p>
+    </div>
+  </section>
+  {{/each}}
+</section>
+
+<!-- Add Comment Section -->
+<section class="card text-center">
+  <div class="card-body">
+    <!-- Add Comment Title -->
+    <h3 class="card-title">Add a Comment</h3>
+    <!-- Form for adding a new comment -->
+    <form id="newComment" class="comment-form">
+      <div class="card-text">
+        <!-- Hidden input for storing the post ID -->
+        <input id="commentId" hidden="true" value="{{hbsPost.id}}">
+        <!-- Textarea for typing the comment -->
+        <textarea id="comment" class="comment-textarea" name="comment_text" placeholder="Type your comment here..." required></textarea>
+      </div>
+      <!-- Button for submitting the new comment -->
+      <button id="createComment" class="create-button" type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- JavaScript file for Comment -->
+<script src="/js/comment.js"></script>

@@ -1,0 +1,46 @@
+<!-- Dashboard Title -->
+<h1>Welcome to the Dashboard</h1>
+
+<!-- Section to Display the Current Post for Update and Delete -->
+<section id="currentPostUpdate">
+    <section class="card">
+        <div class="card-body">
+            <!-- Display the Post Title -->
+            <h3 class="card-title">{{hbsPost.title}}</h3> 
+            <!-- Display the Post Creation Date -->
+            <h5>Posted on {{hbsPost.createdAt}}</h5>
+            <!-- Display the Post Content -->
+            <p class="card-text">{{hbsPost.content}}</p>
+        </div>
+    </section>
+</section>
+
+<!-- Section to Edit and Update the Post -->
+<section id="editPost" class="card text-center">
+    <div class="card-body">
+        <!-- Title for Edit Post Section -->
+        <h3 class="card-title">Edit Post</h3>
+        <!-- Form for Updating the Post -->
+        <form id="editedPost">
+            <div class="card-text">
+                <label for="editedTitle">Title</label><br>
+                <!-- Input Field for Post Title -->
+                <input type="text" id="editedTitle" placeholder="{{hbsPost.title}}" value="{{hbsPost.title}}">
+            </div>
+            <div class="card-text">
+                <label for="editedContent">Content</label>
+                <!-- Textarea for Post Content -->
+                <textarea id="editedContent">{{hbsPost.content}}</textarea>
+            </div>
+            <!-- Hidden Input Field to Store Post ID -->
+            <input id="hiddenPostId" hidden="true" value="{{hbsPost.id}}"></input>
+            <!-- Button to Update the Post -->
+            <button id="update">Update Post</button>
+            <!-- Button to Delete the Post -->
+            <button id="delete">Delete Post</button>
+        </form>
+    </div>
+</section>
+
+<!-- JavaScript file for Updating and Deleting Posts -->
+<script src="/js/updateAndDelete.js"></script>
